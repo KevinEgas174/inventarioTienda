@@ -1,23 +1,24 @@
 /*
-    Universidad de las Américas (UDLA)
-    Carrera: Ingeniería de Software
-    Materia: Programación 1 
-    Proyecto: Gestion de inventario tiendas 
-    Autores: Kevin Alexander Egas Pozo,
-             Cesar Yunga,
-             Christian Fiallos,
-             Jardi Caseres,
-*/
-
-/*
-    HISTORIAL DE CAMBIOS:
-    2026-04-14   KEP   Creacion de Repositorio y main.c
+    Ingeniería de Software - Programación 1
+    Proyecto: Gestión de Inventario (Taller 4)
+    Integrantes: Kevin Egas, César Yunga, Christian Fiallos, Jardi Caseres
 */
 
 #include <stdio.h>
+#include "inventario.h"
 
 int main() {
+    // Definimos los arreglos paralelos
+    char nombres[MAX_SUCURSALES][MAX_PRODUCTOS][50];
+    int cantidades[MAX_SUCURSALES][MAX_PRODUCTOS];
+    float precios[MAX_SUCURSALES][MAX_PRODUCTOS];
+    int totalProd[MAX_SUCURSALES] = {0};
 
-    printf("Escribir el codigo");
-    
+    // Ejecutamos las funciones paso a paso
+    ingresarDatos(nombres, cantidades, precios, totalProd);
+    mostrarReporte(totalProd, precios, cantidades, nombres);
+    buscarProducto(nombres, precios, totalProd);
+
+    printf("\nPresione cualquier tecla para salir...");
+    return 0;
 }
