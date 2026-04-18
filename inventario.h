@@ -1,12 +1,20 @@
 #ifndef INVENTARIO_H
 #define INVENTARIO_H
 
-#define MAX_PRODUCTOS 10
-#define MAX_SUCURSALES 3
+#define MAX_PRODUCTOS 10  //Definir la cantidad de productos a ingresar 
+// CAMBIAR ESTE VALOR A 10, SOLO ES PARA PROBAR 
 
-// Definimos las funciones que vamos a usar
-void ingresarDatos(char nombres[MAX_SUCURSALES][MAX_PRODUCTOS][50], int cantidades[MAX_SUCURSALES][MAX_PRODUCTOS], float precios[MAX_SUCURSALES][MAX_PRODUCTOS], int totalProd[MAX_SUCURSALES]);
-void mostrarReporte(int totalProd[MAX_SUCURSALES], float precios[MAX_SUCURSALES][MAX_PRODUCTOS], int cantidades[MAX_SUCURSALES][MAX_PRODUCTOS], char nombres[MAX_SUCURSALES][MAX_PRODUCTOS][50]);
-void buscarProducto(char nombres[MAX_SUCURSALES][MAX_PRODUCTOS][50], float precios[MAX_SUCURSALES][MAX_PRODUCTOS], int totalProd[MAX_SUCURSALES]);
+void ingresarDatos(
+    char nombres[10][20], 
+    float precios[10], 
+    int cantidades[10], 
+    char sucursal[20]
+);
+
+float calcularTotalSucursal(float precios[10], int cantidades[10]);
+void encontrarExtremos(char nombres[10][20], float precios[10]);
+float calcularPromedio(float precios[10]);
+void buscarProducto(char nombres[10][20], float precios[10], char sucursal[20]);
+int totalUnidades(int cantidades[10]);
 
 #endif
