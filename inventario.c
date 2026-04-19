@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include "inventario.h"
+#include <ctype.h>
+#include <string.h>
 
 char basura; // Variable para detectar decimales en cantidades para no confundirnos
 
@@ -111,7 +113,7 @@ float calcularPromedio(float precios[10]) {
 }
 
 // FUNCIÓN 5: Buscar un producto por nombre y mostrar su precio 
-void buscarProducto(char nombres[10][20], float precios[10], char sucursal[20]) {
+void buscarProducto(char nombres[10][20], float precios[10], int cantidades[10], char sucursal[20]) {
     char nombreBuscar[20];
     int encontrado = 0;
 
@@ -122,7 +124,7 @@ void buscarProducto(char nombres[10][20], float precios[10], char sucursal[20]) 
 
     for (int i = 0; i < MAX_PRODUCTOS; i++) {
         if (strcmp(nombres[i], nombreBuscar) == 0) {
-            printf("\033[1;32mEncontrado! El precio de %s es: $%.2f\033[0m\n", nombres[i], precios[i]);
+            printf("\033[1;32mEncontrado! El precio de %s es: $%.2f | Stock: %d unidades\033[0m\n", nombres[i], precios[i], cantidades[i]);
             encontrado = 1;
             break; 
         }
@@ -138,3 +140,5 @@ int totalUnidades(int cantidades[10]) {
     }
     return sumaUnidades;
 }
+
+ 

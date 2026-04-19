@@ -11,7 +11,11 @@
 
 /*
     HISTORIAL DE CAMBIOS:
-    2026-04-16    KEG    Creacion de proyecto Inventario Tiendas
+    2026-04-16   KEP   Creacion del proyecto Inventario de Tiendas
+    2026-04-18   KEP   Estructura base, constantes, prototipos y main reorganizado
+    2026-04-18   CRF   Validacion robusta de nombres de sucursal (solo letras y espacios)
+    2026-04-18   JAC   Mejora de funcion buscarProducto - agregar cantidad a la busqueda
+    2026-04-18   COY   Correccion de codificacion UTF-8 y mejoras en menu
 
 */
 
@@ -139,19 +143,19 @@ int main() {
                 printf("1. %s (Norte)\n", sucursalNorte);
                 printf("2. %s (Centro)\n", sucursalCentro);
                 printf("3. %s (Sur)\n", sucursalSur);
-                printf("Seleccione una opción: ");
+                printf("Seleccione una opcion: ");
                 scanf("%d", &opSucursal);
                 while (getchar() != '\n'); // Limpiamos el buffer
 
                 switch(opSucursal) {
                     case 1:
-                        buscarProducto(nombresNorte, preciosNorte, sucursalNorte);
+                        buscarProducto(nombresNorte, preciosNorte, cantidadesNorte, sucursalNorte);
                         break;
                     case 2:
-                        buscarProducto(nombresCentro, preciosCentro, sucursalCentro);
+                        buscarProducto(nombresCentro, preciosCentro, cantidadesCentro, sucursalCentro);
                         break;
                     case 3:
-                        buscarProducto(nombresSur, preciosSur, sucursalSur);
+                        buscarProducto(nombresSur, preciosSur, cantidadesSur, sucursalSur);
                         break;
                     default:
                         printf("\033[1;31mOpcion de sucursal no valida.\033[0m\n");
